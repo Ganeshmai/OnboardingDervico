@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<OnboardingDervico.Models.useronboard>
+
+@{
     ViewData["Title"] = "DashBoard";
     Layout = "~/Views/Shared/_dashboard.cshtml";
 }
@@ -156,7 +158,7 @@
                         <a href="javascript:void(0);" class="waves-effect"><i class="icon-mail-open"></i><span> Onboarding <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
                         <ul class="submenu">
                             <li><a href="/Onboard/AddUser">Add</a></li>
-                            <li><a href="#">Activate</a></li>
+                            <li><a href="/Users/Details">Users</a></li>
                             <li><a href="#">Send Mail</a></li>
                         </ul>
                     </li>
@@ -165,7 +167,7 @@
                         <ul class="submenu">
                             <li><a href="#">Deactivate</a></li>
                             <li><a href="#">Allocations</a></li>
-                            <li><a href="#">Send Mail</a></li>
+                           @* <li><a href="#">Send Mail</a></li>*@
                         </ul>
                     </li>
 
@@ -383,7 +385,7 @@
 
                 </div>
 
-                <div class="row">
+                @*<div class="row">
                     <div class="col-xl-8">
                         <div class="card m-b-30">
                             <div class="card-body">
@@ -394,10 +396,10 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                     <!-- end col -->
 
-                    <div class="col-xl-4">
+                    @*<div class="col-xl-4">
                         <div class="card m-b-30">
                             <div class="card-body">
                                 <h4 class="mt-0 header-title mb-4"> STATUS CHART</h4>
@@ -406,13 +408,16 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                     <!-- end col -->
-                </div>
+@*                </div>*@
                 <!-- end row -->
 
-                <div class="row">
-                    <div class="col-xl-4">
+
+              @*  changed col-xl-4 to 6*@
+
+                @*<div class="row">
+                    <div class="col-xl-6">
                         <div class="card m-b-30">
                             <div class="card-body">
                                 <h4 class="mt-0 header-title mb-4">TEAM MEMBERS</h4>
@@ -500,9 +505,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
 
-                    <div class="col-xl-4">
+                    @*<div class="col-xl-4">
                         <div class="card m-b-30">
                             <div class="card-body">
                                 <h4 class="mt-0 header-title mb-4">Team Analytics</h4>
@@ -511,9 +516,12 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div>*@
 
-                    <div class="col-xl-4">
+                    
+              @*  changed col-xl-4 to 6*@
+
+                    @*<div class="col-xl-6">
                         <div class="card m-b-30">
                             <div class="card-body">
 
@@ -543,7 +551,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
 
                 <!-- START ROW -->
                 <div class="row">
@@ -557,14 +565,39 @@
                                             <tr>
                                                 <th scope="col">Name</th>
                                                 <th scope="col">Status</th>
-                                                <th scope="col">Role</th>
-                                                <th scope="col">Contact</th>
+                                                <th scope="col">Position</th>
+                                                <th scope="col">Team</th>
                                                 <th scope="col">Location</th>
                                                 <th scope="col" colspan="2">Date</th>
 
                                             </tr>
                                         </thead>
+
                                         <tbody>
+                                            @foreach( var i in Model)
+                                            {
+                                            <tr>
+                                                <td>@i.name@i.surname</td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>@i.position</td>
+                                                <td>@i.team</td>
+                                                <td>@i.location</td>
+                                                <td>@i.startDate.ToString("yy/dd/MM")</td>
+                                                <td>
+                                                    <div>
+                                                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            }
+
+                                        </tbody>
+
+
+
+
+
+                                       @* <tbody>
                                             <tr>
                                                 <td>Sudhaker</td>
                                                 <td><span class="badge badge-success">Active</span></td>
@@ -655,7 +688,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                        </tbody>
+                                        </tbody>*@
                                     </table>
                                 </div>
 

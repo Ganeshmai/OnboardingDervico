@@ -14,10 +14,18 @@ namespace OnboardingDervico.Models
 
         public DbSet<role> role { get; set; }
 
+        public DbSet<useronboard> useronboard { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<users>()
-                .HasKey(o => new {o.userId,o.staffId});
+                .HasKey(o => new {o.staffId,});
+
+            modelBuilder.Entity<useronboard>()
+              .HasKey(o => new {  o.empId });
+
+            modelBuilder.Entity<useronboard>()
+                .Property(o => o.startDate).HasColumnType("date");
         }
 
 

@@ -1,0 +1,126 @@
+﻿@model IEnumerable<OnboardingDervico.Models.useronboard>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<a style="background-color:forestgreen" href="/Onboard/AddUser" class="btn btn-default">NewUser</a>
+
+<table style="background-color:lightgray " class="table table-bordered table-hover ">
+    
+    <thead style="background-color:coral ">
+        <tr >
+            <th>
+                @Html.DisplayNameFor(model => model.userId)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.empId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.emailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.businessUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.team)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.subTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jobProfile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.derivcoManager)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.startDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.costCentre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gender)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td >
+                @Html.DisplayFor(modelItem => item.userId)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.empId )
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.emailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.businessUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.team)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subTeam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jobProfile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.derivcoManager)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.startDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.costCentre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gender)
+            </td>
+            <td>
+                <a asp-action="EditOnboardUser" asp-route-id="@item.empId">Edit</a> |
+                <a asp-action="DetailsOnboardUser" asp-route-id="@item.empId">Details</a> 
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

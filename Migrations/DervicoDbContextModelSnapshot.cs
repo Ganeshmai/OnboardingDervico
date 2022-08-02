@@ -42,14 +42,79 @@ namespace OnboardingDervico.Migrations
                     b.ToTable("role");
                 });
 
-            modelBuilder.Entity("OnboardingDervico.Models.users", b =>
+            modelBuilder.Entity("OnboardingDervico.Models.useronboard", b =>
                 {
+                    b.Property<string>("empId")
+                        .HasColumnType("varchar(7)");
+
+                    b.Property<string>("businessUnit")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("costCentre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("department")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("derivcoManager")
+                        .IsRequired()
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<string>("emailId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("gender")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("jobProfile")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("location")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("position")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<DateTime>("startDate")
+                        .HasColumnType("date");
+
+                    b.Property<string>("subTeam")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("surname")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("team")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
                     b.Property<int>("userId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("userId"), 1L, 1);
 
+                    b.HasKey("empId");
+
+                    b.ToTable("useronboard");
+                });
+
+            modelBuilder.Entity("OnboardingDervico.Models.users", b =>
+                {
                     b.Property<string>("staffId")
                         .HasColumnType("varchar(7)");
 
@@ -94,7 +159,13 @@ namespace OnboardingDervico.Migrations
                     b.Property<int>("roleId")
                         .HasColumnType("int");
 
-                    b.HasKey("userId", "staffId");
+                    b.Property<int>("userId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("userId"), 1L, 1);
+
+                    b.HasKey("staffId");
 
                     b.HasIndex("roleId");
 

@@ -1,53 +1,32 @@
 ﻿@model OnboardingDervico.Models.useronboard
 
 @{
+    ViewData["Title"] = "EditOnboardUser";
     Layout = "~/Views/Shared/_dashboard.cshtml";
 }
- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"> </script>
-<!DOCTYPE html>
 <style>
     .content-page1{
         margin-left:20px;
         margin-top:10px;
-    }
 
 </style>
-<html>
-    
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>AddUser</title>
 
-    @{
-    if(TempData["Message"] != null)
-    {
-     <script>   swal("Success!", "@TempData["Message"]", "success");</script>
-    }
+<h1>EditOnboardUser</h1>
 
-
-}
-</head>
+<h4>useronboard</h4>
+<hr />
 <body>
-
-
-<h4>Onboard Details</h4>
-<table>
 <div class="content-page1">
         <!-- Start content -->
         <div class="content">
             <div class="container-fluid">
 
- <form asp-action="AddUser">
+ <form asp-action="EditOnboardUser">
 <div class="row align-items-center">
-    
-     <div class="col-sm-5">
-       
+             <div class="col-sm-5">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="empId" class="control-label"></label>
-                <input asp-for="empId" class="form-control" />
-                <span asp-validation-for="empId" class="text-danger"></span>
-            </div>
+            
+            <input type="hidden" asp-for="empId" />
             <div class="form-group">
                 <label asp-for="name" class="control-label"></label>
                 <input asp-for="name" class="form-control" />
@@ -73,8 +52,6 @@
                 <input asp-for="department" class="form-control" />
                 <span asp-validation-for="department" class="text-danger"></span>
             </div>
-    
-
             <div class="form-group">
                 <label asp-for="team" class="control-label"></label>
                 <input asp-for="team" class="form-control" />
@@ -85,22 +62,20 @@
                 <input asp-for="subTeam" class="form-control" />
                 <span asp-validation-for="subTeam" class="text-danger"></span>
             </div>
-         </div>
-      <div class="col-sm-5">
-          <hr />
             <div class="form-group">
                 <label asp-for="position" class="control-label"></label>
                 <input asp-for="position" class="form-control" />
                 <span asp-validation-for="position" class="text-danger"></span>
             </div>
-        
+            </div>
+         <div class="col-sm-5">
             <div class="form-group">
                 <label asp-for="jobProfile" class="control-label"></label>
                 <input asp-for="jobProfile" class="form-control" />
                 <span asp-validation-for="jobProfile" class="text-danger"></span>
             </div>
             <div class="form-group">
-              <label style="text-decoration:solid"> Location :</label> 
+                <label asp-for="location" class="control-label"></label>
                 <input asp-for="location" class="form-control" />
                 <span asp-validation-for="location" class="text-danger"></span>
             </div>
@@ -111,7 +86,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="startDate" class="control-label"></label>
-                <input asp-for="startDate" class="form-control" value=@DateTime.Today.ToString("yy-MM-dd")/>
+                <input asp-for="startDate" class="form-control" />
                 <span asp-validation-for="startDate" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -125,18 +100,13 @@
                 <span asp-validation-for="gender" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-success" />
-                
-               <a href="/" class="btn btn-danger"> Back  </a>
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
-
-    </div>
-</div>
-</form>
-   
+        </form>
     </div>
 </div>
 
-</table>
+<div>
+    <a asp-action="Details">Back to List</a>
+</div>
 </body>
-</html>

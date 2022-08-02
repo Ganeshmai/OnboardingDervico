@@ -5,16 +5,21 @@ using System.Diagnostics;
 
 namespace OnboardingDervico.Controllers
 {
- [Authorize]
+//[Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly DervicoDbContext _dervicoDbContext;
+
+
+        public HomeController(ILogger<HomeController> logger, DervicoDbContext dervicoDbContext)
         {
             _logger = logger;
+            _dervicoDbContext = dervicoDbContext;
         }
-        
+
+
         public IActionResult Index()
         {
             return View();
@@ -35,7 +40,9 @@ namespace OnboardingDervico.Controllers
         [Route("/Dashboard")]
         public IActionResult DashBoard()
         {
-            return View();
+            var users = _dervicoDbContext.useronboard;
+
+            return View(users);
         }
 
 

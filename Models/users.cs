@@ -7,8 +7,9 @@ namespace OnboardingDervico.Models
     {
         [ DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int userId { get; set; }
-
-        [ DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
+        [Key]
+        
         [Column(TypeName = "varchar(7)")]
         public string staffId { get; set; }
 

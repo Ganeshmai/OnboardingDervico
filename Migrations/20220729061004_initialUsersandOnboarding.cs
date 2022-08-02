@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OnboardingDervico.Migrations
 {
-    public partial class initialcommitDB : Migration
+    public partial class initialUsersandOnboarding : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,12 +24,39 @@ namespace OnboardingDervico.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "useronboard",
+                columns: table => new
+                {
+                    empId = table.Column<string>(type: "varchar(7)", nullable: false),
+                    userId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "varchar(50)", nullable: false),
+                    surname = table.Column<string>(type: "varchar(50)", nullable: false),
+                    emailId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    businessUnit = table.Column<string>(type: "varchar(50)", nullable: false),
+                    department = table.Column<string>(type: "varchar(50)", nullable: false),
+                    team = table.Column<string>(type: "varchar(50)", nullable: false),
+                    subTeam = table.Column<string>(type: "varchar(50)", nullable: false),
+                    position = table.Column<string>(type: "varchar(50)", nullable: false),
+                    jobProfile = table.Column<string>(type: "varchar(50)", nullable: false),
+                    location = table.Column<string>(type: "varchar(50)", nullable: false),
+                    derivcoManager = table.Column<string>(type: "varchar(150)", nullable: false),
+                    startDate = table.Column<DateTime>(type: "date", nullable: false),
+                    costCentre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    gender = table.Column<string>(type: "varchar(50)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_useronboard", x => x.empId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "users",
                 columns: table => new
                 {
+                    staffId = table.Column<string>(type: "varchar(7)", nullable: false),
                     userId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    staffId = table.Column<string>(type: "varchar(7)", nullable: false),
                     fullName = table.Column<string>(type: "varchar(150)", nullable: false),
                     emailId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     mobileNo = table.Column<string>(type: "varchar(15)", nullable: false),
@@ -44,7 +71,7 @@ namespace OnboardingDervico.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_users", x => new { x.userId, x.staffId });
+                    table.PrimaryKey("PK_users", x => x.staffId);
                     table.ForeignKey(
                         name: "FK_users_role_roleId",
                         column: x => x.roleId,
@@ -61,6 +88,9 @@ namespace OnboardingDervico.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "useronboard");
+
             migrationBuilder.DropTable(
                 name: "users");
 
