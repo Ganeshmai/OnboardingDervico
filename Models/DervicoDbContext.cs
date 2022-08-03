@@ -16,6 +16,8 @@ namespace OnboardingDervico.Models
 
         public DbSet<useronboard> useronboard { get; set; }
 
+        public DbSet<UserProfile> userProfile { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<users>()
@@ -26,6 +28,8 @@ namespace OnboardingDervico.Models
 
             modelBuilder.Entity<useronboard>()
                 .Property(o => o.startDate).HasColumnType("date");
+
+            modelBuilder.Entity<UserProfile>().Property(p => p.startDate).HasColumnType("date");
         }
 
 

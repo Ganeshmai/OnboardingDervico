@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using OnboardingDervico.Models;
 
 namespace OnboardingDervico.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private readonly DervicoDbContext _dervicoDbContext;
@@ -23,7 +25,7 @@ namespace OnboardingDervico.Controllers
             return View(user);
         }
         [HttpPost]
-        public IActionResult EditOnboardUser(useronboard user)
+        public IActionResult EditOnboardUser(useronboard user , int ? val )
         {
             useronboard exist = _dervicoDbContext.useronboard.Where(p => p.empId == user.empId).FirstOrDefault();
             if (exist != null)
@@ -42,8 +44,17 @@ namespace OnboardingDervico.Controllers
             exist.surname = user.surname;
             exist.team = user.team;
 
+            if(val == 1)
+            {
+                
+
+
+
+
+            }
+
             _dervicoDbContext.SaveChanges();
-            return View("DashBoard");
+            return RedirectToAction("DashBoard","Home");
         }
         public IActionResult DetailsOnboardUser(string id)
         {
@@ -52,5 +63,53 @@ namespace OnboardingDervico.Controllers
 
             return View(exist);
         }
+
+        public IActionResult DeleteOnboardUser(string id)
+        {
+
+            var query = _dervicoDbContext.useronboard.Where(p => p.empId == id).FirstOrDefault();
+
+            _dervicoDbContext.useronboard.Remove(query);
+
+
+            if(query != null)
+            {
+                var s = _dervicoDbContext.users.Where(p => p.staffId == id).FirstOrDefault();
+                if (s != null) {
+                    s.lockcount = 0;
+                        }
+                _dervicoDbContext.SaveChanges();
+
+                
+            }
+            _dervicoDbContext.SaveChanges();
+            return RedirectToAction("DashBoard", "Home");
+        }
+
+        public IActionResult StatusUpdate(string id)
+        {
+          var user= _dervicoDbContext.userProfile.Where(p=>p.staffId == id).FirstOrDefault();
+
+
+
+            return View (user);
+        }
+        [HttpPost]
+        public IActionResult StatusUpdate(UserProfile user)
+        {
+            var val = _dervicoDbContext.userProfile.Where(p => p.staffId == user.staffId).FirstOrDefault();
+
+            if(val != null)
+            {
+                val.startDate = user.startDate;
+                val.Status = user.Status;
+
+                _dervicoDbContext.SaveChanges();
+
+            }
+            return RedirectToAction("DashBoard","Home");
+        }
+
+
     }
 }

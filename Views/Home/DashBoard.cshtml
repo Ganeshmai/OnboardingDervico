@@ -1,4 +1,7 @@
-﻿@model IEnumerable<OnboardingDervico.Models.useronboard>
+﻿@using OnboardingDervico.Models;
+
+
+
 
 @{
     ViewData["Title"] = "DashBoard";
@@ -26,20 +29,7 @@
         <nav class="navbar-custom">
             <ul class="navbar-right list-inline float-right mb-0">
 
-                <!-- language-->
-                @*<li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
-                    <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="images/us_flag.jpg" class="mr-2" height="12" alt="" /> English <span class="mdi mdi-chevron-down"></span>
-                    </a>
-                    div class="dropdown-menu dropdown-menu-right dropdown-menu-animated language-switch">
-                    <a class="dropdown-item" href="#"><img src="images/french_flag.jpg" alt="" height="16" /><span> French </span></a>
-                    <a class="dropdown-item" href="#"><img src="images/spain_flag.jpg" alt="" height="16" /><span> Spanish </span></a>
-                    <a class="dropdown-item" href="#"><img src="images/russia_flag.jpg" alt="" height="16" /><span> Russian </span></a>
-                    <a class="dropdown-item" href="#"><img src="images/germany_flag.jpg" alt="" height="16" /><span> German </span></a>
-                    <a class="dropdown-item" href="#"><img src="images/italy_flag.jpg" alt="" height="16" /><span> Italian </span></a>
-                    </div>
-                    </li>*@
-
+ 
                 <!-- full screen -->
                 <li class="dropdown notification-list list-inline-item d-none d-md-inline-block">
                     <a class="nav-link waves-effect" href="#" id="btn-fullscreen">
@@ -104,7 +94,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                             <!-- item-->
-                            <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle"></i> Profile</a>
+                            <a class="dropdown-item" href="/Users/DetailsOnboardUser/@Context.Session.GetString("userId")"><i class="mdi mdi-account-circle"></i> Profile</a>
 
 
                             @* <a class="dropdown-item" href="#"><i class="mdi mdi-wallet"></i> Wallet</a>*@
@@ -171,49 +161,11 @@
                         </ul>
                     </li>
 
-                    @* <li>
-                        <a href="calendar.html" class="waves-effect"><i class="icon-calendar"></i><span> Calendar </span></a>
-                        </li>*@
-
-                    @*<li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-paper-sheet"></i><span> Pages <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                        <ul class="submenu">
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Invoice</a></li>
-                        <li><a href="#">Timeline</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Maintenance</a></li>
-                        <li><a href="#">Coming Soon</a></li>
-                        <li><a href="#">Starter Page</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Register</a></li>
-                        <li><a href="#">Recover Password</a></li>
-                        <li><a href="#">Lock Screen</a></li>
-                        <li><a href="#">Error 404</a></li>
-                        <li><a href="#">Error 500</a></li>
-                        </ul>
-                        </li>*@
-
+                   
                     <li class="menu-title">Profile</li>
 
-                    @*<li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-pencil-ruler"></i> <span> UI Elements <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
-                        <ul class="submenu">
-                        <li><a href="#">Alerts</a></li>
-                        <li><a href="#">Badge</a></li>
 
-                        </ul>
-                        </li>*@
-
-                    @*<li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-diamond"></i> <span> Advanced UI <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span> </a>
-                        <ul class="submenu">
-                        <li><a href="#">Alertify</a></li>
-                        <li><a href="#">Rating</a></li>
-
-                        </ul>
-                        </li>*@
-
+                 
                     <li>
                         <a href="javascript:void(0);" class="waves-effect"><i class="icon-todolist-check"></i><span> Activities <span class="badge badge-pill badge-danger float-right">8</span> </span></a>
                         <ul class="submenu">
@@ -224,57 +176,11 @@
                     </li>
 
                     <li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-graph"></i><span> Settings <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                        @* <ul class="submenu">
-                            <li><a href="#">Morris Chart</a></li>
-                            <li><a href="#">Chartist Chart</a></li>
-                            <li><a href="#">Chartjs Chart</a></li>
-                            <li><a href="#">Flot Chart</a></li>
-                            <li><a href="#">C3 Chart</a></li>
-                            <li><a href="#">Jquery Knob Chart</a></li>
-                            </ul>*@
+                        <a href="/Users/DetailsOnboardUser/@Context.Session.GetString("userId")" class="waves-effect"><i class="icon-graph"></i><span> Settings <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
+                       
                     </li>
 
-                    @*<li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-spread"></i><span> Tables <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                        <ul class="submenu">
-                        <li><a href="#">Basic Tables</a></li>
-                        <li><a href="#">Data Table</a></li>
-
-                        </ul>
-                        </li>*@
-
-                    @*<li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-coffee"></i> <span> Icons  <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></span> </a>
-                        <ul class="submenu">
-                        <li><a href="#">Material Design</a></li>
-                        <li><a href="#">Font Awesome</a></li>
-
-                        </ul>
-                        </li>*@
-
-                    @* <li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-map"></i><span> Maps <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                        <ul class="submenu">
-                        <li><a href="#"> Google Map</a></li>
-                        <li><a href="#"> Vector Map</a></li>
-                        </ul>
-                        </li>*@
-
-                    @*<li>
-                        <a href="javascript:void(0);" class="waves-effect"><i class="icon-share"></i><span> Multi Level <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span> </span></a>
-                        <ul class="submenu">
-                        <li><a href="#"> Menu 1</a></li>
-                        <li>
-                        <a href="#">Menu 2  <span class="float-right menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                        <ul class="submenu">
-                        <li><a href="#">Menu 2.1</a></li>
-                        <li><a href="#">Menu 2.1</a></li>
-                        </ul>
-                        </li>
-                        </ul>
-                        </li>*@
-
+                
                 </ul>
 
             </div>
@@ -318,7 +224,7 @@
                                     <i class="mdi mdi-cube-outline bg-primary  text-white"></i>
                                 </div>
                                 <div>
-                                    <h5 class="font-16">Active Associates</h5>
+                                    <h5 class="font-16"> Associates</h5>
                                 </div>
                                 <h3 class="mt-4">225</h3>
                                 <div class="progress mt-4" style="height: 4px;">
@@ -385,173 +291,7 @@
 
                 </div>
 
-                @*<div class="row">
-                    <div class="col-xl-8">
-                        <div class="card m-b-30">
-                            <div class="card-body">
-
-                                <h4 class="mt-0 header-title mb-4">ACTIVITY CHART</h4>
-
-                                <div id="morris-area-example" class="morris-charts morris-chart-height"></div>
-
-                            </div>
-                        </div>
-                    </div>*@
-                    <!-- end col -->
-
-                    @*<div class="col-xl-4">
-                        <div class="card m-b-30">
-                            <div class="card-body">
-                                <h4 class="mt-0 header-title mb-4"> STATUS CHART</h4>
-
-                                <div id="morris-donut-example" class="morris-charts morris-chart-height"></div>
-
-                            </div>
-                        </div>
-                    </div>*@
-                    <!-- end col -->
-@*                </div>*@
-                <!-- end row -->
-
-
-              @*  changed col-xl-4 to 6*@
-
-                @*<div class="row">
-                    <div class="col-xl-6">
-                        <div class="card m-b-30">
-                            <div class="card-body">
-                                <h4 class="mt-0 header-title mb-4">TEAM MEMBERS</h4>
-                                <div class="friends-suggestions">
-                                    <a href="#" class="friends-suggestions-list">
-                                        <div class="border-bottom position-relative">
-                                            <div class="float-left mb-0 mr-3">
-                                                <img src="images/user-2.jpg" alt="" class="rounded-circle thumb-md">
-                                            </div>
-                                            <div class="suggestion-icon float-right mt-2 pt-1">
-                                                <i class="mdi mdi-plus"></i>
-                                            </div>
-
-                                            <div class="desc">
-                                                <h5 class="font-14 mb-1 pt-2">Ralph Ramirez</h5>
-                                                <p class="text-muted">Team Leader</p>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <a href="#" class="friends-suggestions-list">
-                                        <div class="border-bottom position-relative">
-                                            <div class="float-left mb-0 mr-3">
-                                                <img src="images/user-3.jpg" alt="" class="rounded-circle thumb-md">
-                                            </div>
-                                            <div class="suggestion-icon float-right mt-2 pt-1">
-                                                <i class="mdi mdi-plus"></i>
-                                            </div>
-
-                                            <div class="desc">
-                                                <h5 class="font-14 mb-1 pt-2">Patrick Beeler</h5>
-                                                <p class="text-muted">Solution Architectuct</p>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <a href="#" class="friends-suggestions-list">
-                                        <div class="border-bottom position-relative">
-                                            <div class="float-left mb-0 mr-3">
-                                                <img src="images/user-4.jpg" alt="" class="rounded-circle thumb-md">
-                                            </div>
-                                            <div class="suggestion-icon float-right mt-2 pt-1">
-                                                <i class="mdi mdi-plus"></i>
-                                            </div>
-
-                                            <div class="desc">
-                                                <h5 class="font-14 mb-1 pt-2">Victor Zamora</h5>
-                                                <p class="text-muted">Junior Developer</p>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <a href="#" class="friends-suggestions-list">
-                                        <div class="border-bottom position-relative">
-                                            <div class="float-left mb-0 mr-3">
-                                                <img src="images/user-5.jpg" alt="" class="rounded-circle thumb-md">
-                                            </div>
-                                            <div class="suggestion-icon float-right mt-2 pt-1">
-                                                <i class="mdi mdi-plus"></i>
-                                            </div>
-
-                                            <div class="desc">
-                                                <h5 class="font-14 mb-1 pt-2">Bryan Lacy</h5>
-                                                <p class="text-muted">Junior Developer</p>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <a href="#" class="friends-suggestions-list">
-                                        <div class="position-relative">
-                                            <div class="float-left mb-0 mr-3">
-                                                <img src="images/user-6.jpg" alt="" class="rounded-circle thumb-md">
-                                            </div>
-                                            <div class="suggestion-icon float-right mt-2 pt-1">
-                                                <i class="mdi mdi-plus"></i>
-                                            </div>
-
-                                            <div class="desc">
-                                                <h5 class="font-14 mb-1 pt-2">James Sorrells</h5>
-                                                <p class="text-muted mb-1">Junior Developer</p>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>*@
-
-                    @*<div class="col-xl-4">
-                        <div class="card m-b-30">
-                            <div class="card-body">
-                                <h4 class="mt-0 header-title mb-4">Team Analytics</h4>
-                                <div id="morris-line-example" class="morris-chart" style="height: 360px"></div>
-
-                            </div>
-                        </div>
-
-                    </div>*@
-
-                    
-              @*  changed col-xl-4 to 6*@
-
-                    @*<div class="col-xl-6">
-                        <div class="card m-b-30">
-                            <div class="card-body">
-
-                                <h4 class="mt-0 header-title mb-4">Recent Activity</h4>
-                                <ol class="activity-feed mb-0">
-                                    <li class="feed-item">
-                                        <div class="feed-item-list">
-                                            <p class="text-muted mb-1">Now</p>
-                                            <p class="font-15 mt-0 mb-0">Onboarded new Associate: <b class="text-primary">Details Submitted</b></p>
-                                        </div>
-                                    </li>
-                                    <li class="feed-item">
-                                        <p class="text-muted mb-1">Yesterday</p>
-                                        <p class="font-15 mt-0 mb-0">Activate User MG65524: <b class="text-primary">Game Alex</b></p>
-                                    </li>
-                                    <li class="feed-item">
-                                        <p class="text-muted mb-1">2:30PM</p>
-                                        <p class="font-15 mt-0 mb-0">Sended Mail to HTMPMO <b class="text-primary"> Zender creation</b></p>
-                                    </li>
-                                    <li class="feed-item pb-1">
-                                        <p class="text-muted mb-1">12:48 PM</p>
-                                        <p class="font-15 mt-0 mb-2">Completed Boarding <b class="text-primary">Done Closed</b></p>
-                                    </li>
-
-                                </ol>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
+               
 
                 <!-- START ROW -->
                 <div class="row">
@@ -577,15 +317,23 @@
                                             @foreach( var i in Model)
                                             {
                                             <tr>
-                                                <td>@i.name@i.surname</td>
-                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>@i.name</td>
+                                                
+                                               
+                                                <td><span class="badge badge-success">@i.status</span></td>
+                                                
                                                 <td>@i.position</td>
                                                 <td>@i.team</td>
                                                 <td>@i.location</td>
                                                 <td>@i.startDate.ToString("yy/dd/MM")</td>
                                                 <td>
                                                     <div>
-                                                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                                                        <a asp-controller="Users" asp-action="EditOnboardUser" asp-route-id="@i.empId" class="btn btn-primary btn-sm">Edit</a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>
+                                                        <a asp-controller="Users" asp-action="StatusUpdate" asp-route-id="@i.empId" class="btn btn-secondary btn-sm">Status</a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -597,98 +345,7 @@
 
 
 
-                                       @* <tbody>
-                                            <tr>
-                                                <td>Sudhaker</td>
-                                                <td><span class="badge badge-success">Active</span></td>
-                                                <td>836328822</td>
-                                                <td>
-                                                    <div>
-                                                        <img src="images/user-2.jpg" alt="" class="thumb-md rounded-circle mr-2"> Jassa
-                                                    </div>
-                                                </td>
-                                                <td>Pune</td>
-                                                <td>15/1/2021</td>
-
-                                                <td>
-                                                    <div>
-                                                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sparsh</td>
-                                                <td><span class="badge badge-warning">Inactive</span></td>
-                                                <td>2020223</td>
-                                                <td>
-                                                    <div>
-                                                        <img src="images/user-3.jpg" alt="" class="thumb-md rounded-circle mr-2"> Jassa
-                                                    </div>
-                                                </td>
-                                                <td>Bangalore</td>
-                                                <td>16/1/2021</td>
-
-                                                <td>
-                                                    <div>
-                                                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Manali</td>
-                                                <td><span class="badge badge-success">Active</span></td>
-                                                <td>9227812133</td>
-                                                <td>
-                                                    <div>
-                                                        <img src="images/user-4.jpg" alt="" class="thumb-md rounded-circle mr-2"> Jassa
-                                                    </div>
-                                                </td>
-                                                <td>Pune</td>
-                                                <td>17/6/2022</td>
-
-                                                <td>
-                                                    <div>
-                                                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>kumarRaj</td>
-                                                <td><span class="badge badge-danger">Pending</span></td>
-                                                <td>3710232</td>
-                                                <td>
-                                                    <div>
-                                                        <img src="images/user-5.jpg" alt="" class="thumb-md rounded-circle mr-2"> kumarRaj
-                                                    </div>
-                                                </td>
-                                                <td>Kolkata</td>
-                                                <td>18/4/2022</td>
-
-                                                <td>
-                                                    <div>
-                                                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Keerthi</td>
-                                                <td><span class="badge badge-success">Delivered</span></td>
-                                                <td>9342610822</td>
-                                                <td>
-                                                    <div>
-                                                        <img src="images/user-6.jpg" alt="" class="thumb-md rounded-circle mr-2"> Keerthi
-                                                    </div>
-                                                </td>
-                                                <td>Pune</td>
-                                                <td>19/12/2019</td>
-
-                                                <td>
-                                                    <div>
-                                                        <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>*@
+                                       
                                     </table>
                                 </div>
 

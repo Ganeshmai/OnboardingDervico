@@ -100,13 +100,15 @@
                 <span asp-validation-for="gender" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary"  />
+
+                <input type="submit" value="SendMail" class="btn btn-success" asp-route="1"/>
+
+                 <a href="/" class="btn btn-danger"> Back  </a>
+
+
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Details">Back to List</a>
 </div>
 </body>

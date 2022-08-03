@@ -1,0 +1,46 @@
+﻿@model OnboardingDervico.Models.UserProfile
+
+@{
+    ViewData["Title"] = "StatusUpdate";
+    Layout = "~/Views/Shared/_dashboard.cshtml";
+}
+
+<h1>StatusUpdate</h1>
+
+<h4>UserProfile</h4>
+<hr />
+<div class="row" style="margin-left:30px">
+    <div class="col-md-4">
+        <form asp-action="StatusUpdate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="profileId" />
+                        <input type="hidden" asp-for="staffId" />
+
+            
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="startDate" class="control-label"></label>
+                <input asp-for="startDate" class="form-control" />
+                <span asp-validation-for="startDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecentActivity" class="control-label"></label>
+                <input asp-for="RecentActivity" class="form-control" />
+                <span asp-validation-for="RecentActivity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary"  />
+
+                <a href="/" class="btn btn-danger"> Back  </a>
+
+                 
+            </div>
+        </form>
+    </div>
+</div>
+
+

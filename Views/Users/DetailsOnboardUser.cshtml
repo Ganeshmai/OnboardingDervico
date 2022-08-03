@@ -6,105 +6,68 @@
 }
 
 <h1>DetailsOnboardUser</h1>
-<body style="margin-left:20px">
-<div>
-    <h4>useronboard</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.userId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.userId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.surname)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.surname)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.emailId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.emailId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.businessUnit)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.businessUnit)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.department)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.department)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.team)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.team)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.subTeam)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.subTeam)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.position)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.position)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.jobProfile)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.jobProfile)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.location)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.location)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.derivcoManager)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.derivcoManager)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.startDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.startDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.costCentre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.costCentre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.gender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.gender)
-        </dd>
-    </dl>
+
+
+
+<table class="table" style="margin-left:20px">
+    <tr>
+        <th>EmpId</th>
+        <td>@Model.empId</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>@Model.name</td>
+    </tr>
+    <tr>
+        <th>EmailId</th>
+        <td>@Model.emailId</td>
+    </tr>
+    <tr>
+        <th>business Unit </th>
+        <td>@Model.businessUnit</td>
+    </tr>
+    <tr>
+        <th>Team</th>
+        <td>@Model.team</td>
+    </tr>
+    <tr>
+        <th>SubTeam</th>
+        <td>@Model.subTeam</td>
+    </tr>
+    <tr>
+        <th>Position</th>
+        <td>@Model.position</td>
+    </tr>
+    <tr>
+        <th>Profile</th>
+        <td>@Model.jobProfile</td>
+    </tr>
+    <tr>
+        <th>Location</th>
+        <td>@Model.location</td>
+    </tr>
+    <tr>
+        <th>Manager</th>
+        <td>@Model.derivcoManager</td>
+    </tr>
+     <tr>
+        <th>StartDate</th>
+        <td>@Model.startDate</td>
+    </tr>
+     <tr>
+        <th>CostCentre</th>
+        <td>@Model.costCentre</td>
+    </tr>
+    <tr>
+        <th>Gender</th>
+        <td>@Model.gender</td>
+    </tr>
+
+</table>
+<div style="margin-left:30px">
+    
+    <a asp-action="EditOnboardUser" class="btn btn-outline-warning" asp-route-id="@Model?.empId">Edit</a> |
+   <a href="/" class="btn btn-danger"> Back  </a>
+
 </div>
-<div>
-    <a asp-action="EditOnboardUser" asp-route-id="@Model?.empId">Edit</a> |
-    <a asp-action="Details">Back </a>
-</div>
-</body>
+

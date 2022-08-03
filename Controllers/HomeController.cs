@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace OnboardingDervico.Controllers
 {
-//[Authorize]
+[Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -40,11 +40,36 @@ namespace OnboardingDervico.Controllers
         [Route("/Dashboard")]
         public IActionResult DashBoard()
         {
-            var users = _dervicoDbContext.useronboard;
+            //var users = _dervicoDbContext.useronboard;
+
+            var users = UserDatafetch();
+            
+            //var profile = _dervicoDbContext.userProfile;
 
             return View(users);
         }
 
+        private object UserDatafetch()
+          {
+            var query = from u in _dervicoDbContext.useronboard
+                        from p in _dervicoDbContext.userProfile
 
+                        where p.staffId==u.empId
+                        select new
+                        {
+                            empId = u.empId,
+                            name = u.name+u.surname,
+                            status = p.Status,
+                            position = u.position,
+                            team = u.team,
+                            location = u.location,
+                            startDate = u.startDate
+
+                        };
+
+
+
+            return query;
+        }
     }
 }
